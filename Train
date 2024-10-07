@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         table {
+            border-collapse: collapse; 
+            width: 60%;
+            margin: 50px auto; 
+            border: 2px solid black;
+        }
+        th,td{
+            border: 1px solid;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        TRAIN DETAILS <br>
+        <input type="text" placeholder="Enter train name" id="name">
+        <input type="time" placeholder="Enter arrival time" id="arrival">
+        <input type="time" placeholder="Enter departure time" id="departure"><br>
+        <button onclick="add()">ADD TRAIN</button>
+        <table id="traindetails" style="border: 2px solid;">
+            <tr>
+                <th>Name</th>
+                <th>Arrival time</th>
+                <th>Departure time</th>
+            </tr>
+        </table>
+    </center>
+
+</body>
+<script>
+function add(){
+    const a=document.getElementById("name");
+    const b=document.getElementById("arrival");
+    const c=document.getElementById("departure");
+
+    var x=a.value.trim();
+    var y=b.value.trim();
+    var z=c.value.trim();
+
+    var newrow=document.createElement("tr");
+
+    var newname=document.createElement("td");
+    newname.textContent=x;
+
+    var newarr=document.createElement("td");
+    newarr.textContent=y;
+
+    var newdep=document.createElement("td");
+    newdep.textContent=z;
+
+    newrow.append(newname);
+    newrow.append(newarr);
+    newrow.append(newdep);
+
+    document.getElementById("traindetails").append(newrow);
+    document.getElementById("name").value="";
+    document.getElementById("arrival").value="";
+    document.getElementById("departure").value="";
+
+}
+</script>
+</html>
